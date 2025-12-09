@@ -46,6 +46,13 @@ class DriverListView(LoginRequiredMixin, generic.ListView):
     model = Driver
     paginate_by = 5
 
+    def get_context_data(
+        self, *, object_list = ..., **kwargs
+    ):
+        context = super().get_context_data(**kwargs)
+        context["current_driver_id"] = self.request.user.id
+        return context
+
 
 class DriverDetailView(LoginRequiredMixin, generic.DetailView):
     model = Driver

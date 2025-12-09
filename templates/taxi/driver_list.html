@@ -10,9 +10,7 @@
             {{ driver.username }}
           </a>
           ({{ driver.first_name }} {{ driver.last_name }})
-          {% if driver.id == user.id %}
-            <span class="badge badge-primary">Me</span>
-          {% endif %}
+          {% if driver.id == current_driver_id %} (Me){% endif %}
         </li>
       {% endfor %}
     </ul>
